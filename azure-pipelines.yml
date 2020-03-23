@@ -33,10 +33,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: AzureWebApp@1
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Microsoft Azure Sponsorship(d09a61a0-4b5d-46d4-b30d-22e549a48392)'
     appType: 'webApp'
-    appName: 'kcsara-account-portal'
-    package: '$(build.artifactStagingDirectory)\WebApp.zip'
-    deploymentMethod: 'auto'
+    WebAppName: 'kcsara-account-portal'
+    packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
